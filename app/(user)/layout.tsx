@@ -7,9 +7,9 @@ const Layout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <div className="bg-red-900 grow flex">
+    <div className="grow flex">
       <SideNav />
-      {children}
+      <div className="p-2 grow">{children}</div>
     </div>
   );
 };
