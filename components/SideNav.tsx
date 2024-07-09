@@ -4,6 +4,7 @@ import { CircleGauge, Cog, Gamepad2, ShieldCheck } from "lucide-react";
 import React from "react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 const NAV_ITEMS = [
   {
@@ -34,7 +35,8 @@ export const SideNav = () => {
             <div
               key={item.path}
               className={
-                "flex items-center p-2 rounded-lg " + (path === item.path ? "bg-gray-600" : "")
+                "flex items-center p-2 rounded-lg hover:bg-gray-600 " +
+                (path === item.path ? "bg-gray-600" : "")
               }
             >
               <a href={item.path} className="m-1 flex items-center gap-3">
@@ -47,9 +49,14 @@ export const SideNav = () => {
           ))}
         </TooltipProvider>
       </div>
-      <p className="ml-2">
+      <Link
+        href={"/settings"}
+        className={
+          "rounded-lg hover:bg-gray-600 p-2 " + (path === "/settings" ? "bg-gray-600" : "")
+        }
+      >
         <Cog />
-      </p>
+      </Link>
     </div>
   );
 };
